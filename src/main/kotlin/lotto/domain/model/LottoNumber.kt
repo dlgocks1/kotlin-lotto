@@ -10,6 +10,9 @@ class LottoNumber(private val number: Int) {
         validationNumber(number)
     }
 
+    override fun toString(): String {
+        return number.toString()
+    }
 
     companion object {
         private val CACHED_LOTTO_NUMBER = List(MAX_LOTTO_NUM) { idx ->
@@ -17,6 +20,7 @@ class LottoNumber(private val number: Int) {
         }
 
         fun valueOf(number: Int): LottoNumber {
+            validationNumber(number)
             return CACHED_LOTTO_NUMBER[number - 1]
         }
 

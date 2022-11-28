@@ -14,6 +14,10 @@ class Money(private val userInput: String) {
 
     fun getMoney() = this.amount
 
+    fun calEarningRate(totalPrice: Long): Double {
+        return (totalPrice / amount.toDouble() * 100.0)
+    }
+
     private fun validatePurchaseNum(userInput: String) {
         require(userInput.isNotBlank() && userInput.all { Character.isDigit(it) }) {
             Constants.MONEY_MUST_NUMBER_TEXT
